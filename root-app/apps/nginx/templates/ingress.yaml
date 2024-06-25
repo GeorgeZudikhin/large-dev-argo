@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: argocd.large-dev.tv.org
+  - host: argocd.large-dev.zapto.org
     http:
       paths:
       - path: /
@@ -16,7 +16,7 @@ spec:
             name: argo-cd-argocd-server
             port:
               number: 80
-  - host: web-app.large-dev.tv.org
+  - host: web-app.large-dev.zapto.org
     http:
       paths:
       - path: /
