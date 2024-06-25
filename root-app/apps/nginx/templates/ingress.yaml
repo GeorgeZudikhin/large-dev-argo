@@ -32,6 +32,8 @@ kind: Ingress
 metadata:
   name: large-dev-ingress
   namespace: argocd
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
