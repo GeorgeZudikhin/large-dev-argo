@@ -3,10 +3,14 @@ kind: Ingress
 metadata:
   name: large-dev-ingress
   namespace: argocd
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
-  - host: large-dev.tv.org
+  - host: large-dev.zapto.org
     http:
       paths:
       - path: /
