@@ -6,7 +6,17 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: large-dev.tv.org
+  - host: argocd.large-dev.tv.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argo-cd-argocd-server
+            port:
+              number: 80
+  - host: web-app.large-dev.tv.org
     http:
       paths:
       - path: /
