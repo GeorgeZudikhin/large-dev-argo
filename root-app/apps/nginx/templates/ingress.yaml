@@ -10,7 +10,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: large-dev.tv.org
+    http:
       paths:
       - path: /web-app
         pathType: Prefix
