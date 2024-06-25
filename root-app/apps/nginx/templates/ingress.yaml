@@ -5,10 +5,11 @@ metadata:
   namespace: argocd
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
   rules:
-  - host: large-dev.zapto.org
+  - host: large-dev.tv.org
     http:
       paths:
       - path: /
