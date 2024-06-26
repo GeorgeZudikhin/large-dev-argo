@@ -5,6 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
   rules:
@@ -28,3 +29,8 @@ spec:
             name: nginx
             port:
               number: 80
+  tls:
+  - hosts:
+    - argocd.ldevice.servicedesk.tvwebservices.org
+    - web-app.ldevice.servicedesk.tvwebservices.org
+    secretName: letsencrypt
