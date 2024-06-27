@@ -5,7 +5,6 @@ metadata:
   namespace: argocd
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    acme.cert-manager.io/http01-edit-in-place: "true"
     cert-manager.io/acme-challenge-type: http01
 spec:
   ingressClassName: nginx
