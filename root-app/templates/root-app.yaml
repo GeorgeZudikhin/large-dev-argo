@@ -14,5 +14,6 @@ spec:
     namespace: apps
   syncPolicy:
     automated:
-      selfHeal: true
       prune: true
+      allowEmpty: true
+      selfHeal: true
