@@ -18,4 +18,5 @@ spec:
     namespace: apps
   syncPolicy:
     automated:
+      prune: true
       selfHeal: true
