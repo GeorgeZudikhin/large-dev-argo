@@ -1,6 +1,4 @@
 argo-cd:
-  dex:
-    enabled: false
   notifications:
     enabled: false
   applicationSet:
