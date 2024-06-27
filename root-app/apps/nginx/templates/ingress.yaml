@@ -4,7 +4,6 @@ metadata:
   name: large-dev-ingress
   namespace: argocd
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: letsencrypt
     cert-manager.io/acme-challenge-type: http01
 spec:
