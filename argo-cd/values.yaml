@@ -1,16 +1,19 @@
 argo-cd:
+  notifications:
+    enabled: false
+  applicationSet:
+    enabled: false
   server:
-  nodeSelector:
-    worker.gardener.cloud/pool: np-ske
-
+    extraArgs:
+      - --insecure
+    nodeSelector:
+      worker.gardener.cloud/pool: np-ske
   repoServer:
     nodeSelector:
       worker.gardener.cloud/pool: np-ske
-
   applicationController:
     nodeSelector:
       worker.gardener.cloud/pool: np-ske
-
   dex:
     nodeSelector:
       worker.gardener.cloud/pool: np-ske
