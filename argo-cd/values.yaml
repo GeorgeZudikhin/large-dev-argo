@@ -7,13 +7,13 @@ argo-cd:
     extraArgs:
       - --insecure
     nodeSelector:
-      nodepool: np-ske
+      worker.gardener.cloud/pool: np-ske
   repoServer:
     nodeSelector:
-      nodepool: np-ske
+      worker.gardener.cloud/pool: np-ske
   applicationController:
     nodeSelector:
-      nodepool: np-ske
+      worker.gardener.cloud/pool: np-ske
   dex:
     nodeSelector:
-      nodepool: np-ske
+      worker.gardener.cloud/pool: np-ske
