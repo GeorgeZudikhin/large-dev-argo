@@ -6,3 +6,14 @@ argo-cd:
   server:
     extraArgs:
       - --insecure
+    nodeSelector:
+      nodepool: np-ske
+  repoServer:
+    nodeSelector:
+      nodepool: np-ske
+  applicationController:
+    nodeSelector:
+      nodepool: np-ske
+  dex:
+    nodeSelector:
+      nodepool: np-ske
