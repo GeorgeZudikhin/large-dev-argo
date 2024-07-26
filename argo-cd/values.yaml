@@ -19,7 +19,14 @@ argo-cd:
             usernameAttr: email
             emailAttr: email
             groupsAttr: Group
+
+  notifications:
+    enabled: false
+  applicationSet:
+    enabled: false
   server:
+    extraArgs:
+      - --insecure
     nodeSelector:
       worker.gardener.cloud/pool: np-ske
   repoServer:
