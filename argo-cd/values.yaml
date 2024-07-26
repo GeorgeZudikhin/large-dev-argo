@@ -39,6 +39,14 @@ argo-cd:
             usernameAttr: email
             emailAttr: email
             groupsAttr: Group
+    rbac:
+      policy.csv: |
+        p, role:admin, applications, *, */*, allow
+        p, role:admin, repositories, *, */*, allow
+        p, role:admin, clusters, *, */*, allow
+        p, role:readonly, applications, get, */*, allow
+        g, "f6e6eb76-7a3a-4193-8fdb-2b9e78307fe3", role:admin
+        g, "6f4314bd-6f87-452f-8aa9-136867baff46", role:readonly
 
   notifications:
     enabled: false
