@@ -1,11 +1,39 @@
 argo-cd:
-  notifications:
-    enabled: false
-  applicationSet:
-    enabled: false
+  configs:
+    cm:
+      admin.enabled: true
+      url: https://argocd.ldevice.servicedesk.tvwebservices.org
+      dex.config: |
+        logger:
+          level: info
+          format: json
+        connectors:
+        - type: saml
+          id: saml
+          name: SAML
+          config:
+            entityIssuer: https://argocd.ldevice.servicedesk.tvwebservices.org/api/dex/callback
+            ssoURL: https://login.microsoftonline.com/ff009f2c-d651-472e-b73e-e0f894c6011e/saml2
+            caData: |
+              MIIC8DCCAdigAwIBAgIQXHArUomTwoVP2JW3SThSQTANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDE
+              ylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yNDA3MjUwODU3ND
+              FaFw0yNzA3MjUwODU3NDFaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1N
+              PIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtPRacdRWhxC0rJXD
+              7K+V1ffQ006fS7nBgpKyuVJ+lGzNaH9qAupeu4+bH5LvDYk7eMVphHjyiSyxuAuFyz7tF2GUAv7Kj
+              VyHyyMb3rqWzGqhNPq29s901saj2apoOY21h272LAi7OXEyFPpWKtyDrFRZcd8GehnOBSbtZ1LDrM
+              rM/xIewo6pvp9/+mo14FooJZ1mAz6liazRBEYogUX3Z1SCiSgW0XvJgOXjS7GeodTFooampo+wbAp
+              YPXzDattyr5TFgd/ytS+GARApqUMdXu9JT3zgSdsa2iDV/Qo8N/Zm//1ZTjDMf+XcZOc4YZQl4+Sg
+              ZqzF6BSBwyjSp+32wQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAff7i5gL4qdeY1LV1g1SvZLfDxO
+              TNMM7kzX/NYRgL0oItAUNDbLBZQXFqvXm11SaeVFfxNNiUdd730NNH7JX7oMOIUzo+4VfWjb+DE1/
+              bDSo7zfN9t9jBkXXca/Xg7934J+xjVcCm8UTQiTyeb10c+OZb47RQuCcEYLtmsa8jV4we3yc7Wt5g
+              qZVPbkdU46SL+01UBu451TwPmdYmkRLu9nnPdTlRXbrZwvxgiHumsgbjKDWlvZRRtarApMtMW0c8I
+              uJCDMeCfIvqgkB1YasMnQ3IRWEZ4ven78WhwA15ysn2VkmwsOljRjcVjr0luzm0ov2B6JrFwviO/j
+              MU3LBif
+            redirectURI: https://argocd.ldevice.servicedesk.tvwebservices.org/api/dex/callback
+            usernameAttr: email
+            emailAttr: email
+            groupsAttr: Group
   server:
-    extraArgs:
-      - --insecure
     nodeSelector:
       worker.gardener.cloud/pool: np-ske
   repoServer:
