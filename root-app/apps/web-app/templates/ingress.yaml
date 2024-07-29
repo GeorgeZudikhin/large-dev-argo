@@ -6,14 +6,13 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
     cert-manager.io/acme-challenge-type: http01
-    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   ingressClassName: nginx
   rules:
   - host: argocd.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
-      - path: /
+      - path: /.well-known/acme-challenge/
         pathType: Prefix
         backend:
           service:
@@ -23,7 +22,7 @@ spec:
   - host: web-app.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
-      - path: /
+      - path: /.well-known/acme-challenge/
         pathType: Prefix
         backend:
           service:
@@ -33,7 +32,7 @@ spec:
   - host: api.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
-      - path: /
+      - path: /.well-known/acme-challenge/
         pathType: Prefix
         backend:
           service:
