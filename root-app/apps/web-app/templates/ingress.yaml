@@ -13,6 +13,13 @@ spec:
   - host: argocd.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
+      - path: /.well-known/acme-challenge/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: argo-cd-argocd-server
+            port:
+              number: 80
       - path: /
         pathType: Prefix
         backend:
@@ -23,6 +30,13 @@ spec:
   - host: web-app.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
+      - path: /.well-known/acme-challenge/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
       - path: /
         pathType: Prefix
         backend:
@@ -33,6 +47,13 @@ spec:
   - host: api.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
+      - path: /.well-known/acme-challenge/*
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: backend
+            port:
+              number: 8080
       - path: /
         pathType: Prefix
         backend:
