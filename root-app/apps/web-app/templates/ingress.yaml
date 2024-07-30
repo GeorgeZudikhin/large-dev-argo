@@ -7,20 +7,12 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
     cert-manager.io/acme-challenge-type: http01
     acme.cert-manager.io/http01-edit-in-place: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
   - host: argocd.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
-      - path: /.well-known/acme-challenge/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: cert-manager
-            port:
-              number: 8089
       - path: /
         pathType: Prefix
         backend:
@@ -31,13 +23,6 @@ spec:
   - host: web-app.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
-      - path: /.well-known/acme-challenge/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: cert-manager
-            port:
-              number: 8089
       - path: /
         pathType: Prefix
         backend:
@@ -48,13 +33,6 @@ spec:
   - host: api.ldevice.servicedesk.tvwebservices.org
     http:
       paths:
-      - path: /.well-known/acme-challenge/*
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: cert-manager
-            port:
-              number: 8089
       - path: /
         pathType: Prefix
         backend:
